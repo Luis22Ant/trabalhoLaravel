@@ -23,15 +23,15 @@ class LoginController extends Controller
             'senha.required' => 'O campo de senha é obrigatório'
         ]);
 
-        // Extrai as credenciais da requisição
+  
         $credentials = $request->only('login', 'senha');
 
-        // Busca o usuário pelo login
+ 
         $user = User::where('login', $credentials['login'])->first();
 
-        // Verifica se o usuário existe e se a senha corresponde
+
         if ($user && $user->senha === $credentials['senha']) {
-            // Autentica o usuário manualmente
+       
             Auth::login($user);
             return redirect()->route('home')->with('success', 'Logado com sucesso!');
         } else {

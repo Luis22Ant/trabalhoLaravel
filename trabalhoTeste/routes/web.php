@@ -21,3 +21,6 @@ Route::post('/questao', [QuestaoController::class, 'store'])->name('questao.stor
 Route::get('/teste/{id}/questoes', [TesteController::class, 'getQuestoesDoTeste'])->name('teste.questoes');
 
 Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
+Route::delete('/teste/{id}', [TesteController::class, 'delete'])->name('teste.delete');
+
+Route::get('/teste/{id}', [TesteController::class, 'view'])->name('teste.view');
